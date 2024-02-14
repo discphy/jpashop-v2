@@ -4,8 +4,13 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.InheritanceType.JOINED;
+import static javax.persistence.InheritanceType.SINGLE_TABLE;
+
 @Entity
-public class Item {
+@Inheritance(strategy = JOINED)
+@DiscriminatorColumn
+public abstract class Item extends BaseEntity {
 
     @Id
     @GeneratedValue
